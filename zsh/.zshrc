@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:~/.cabal/bin
+export PINTOS_HOME=/home/karl/Repos
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/karl/.oh-my-zsh"
@@ -116,3 +118,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export EDITOR='/usr/bin/emacsclient --alternate-editor="" -nc'
+
+pintosStart() {
+	docker run -it -d --mount source=testpintos,target=/home/pintos/shared edaf35/edaf35-2020
+	docker container list
+}
